@@ -8,9 +8,13 @@ struct node{
 struct node *head,*temp,*newnode;
 
 /******************function to create newnode*****************/
-void create_node(int data){
+void create_node(){
+    head=0;int choice;
+      while(choice){
     newnode=(struct node *)malloc(sizeof(struct node));
-    newnode->data=data;
+    printf("enter the data:");
+        scanf("%d",&newnode->data);
+    
     newnode->next=0;
 /***************check list *****************/
 if (head==0){
@@ -20,9 +24,12 @@ head=temp=newnode;
    temp=newnode;
 
 }
+    printf("do you want continue press (1) otherwise press (0):");
+    scanf("%d",&choice);
+    }
 }
 /*******function to insert new node at the start of the linked list**********/
-void insert_start(int data){
+void insert_start(){
     newnode=(struct node *)malloc(sizeof(struct node));
     printf("\nenter data in new node you want to insert at starting:");
     scanf("%d",&newnode->data);
@@ -42,21 +49,11 @@ void display(){
     printf("number of item in linked list :%d",count);
 }
 
-
 int main(){
-    int choice;
-    int data;
-    while(choice){
-        printf("enter the data:");
-        scanf("%d",&data);
-        create_node(data);
-    printf("do you want continue press (1) otherwise press (0):");
-    scanf("%d",&choice);
-    }
-
+        create_node();
     display();//print linked list
 
-    insert_start(data);//function call for insertion
+    insert_start();//function call for insertion
 
     display();   //print linked list after insertion
     return 0;
